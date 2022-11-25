@@ -3,7 +3,7 @@ import "./MovieDetail.css"
 import { useParams } from "react-router-dom"
 
 const Movie = () => {
-    const [currentMovieDetail, setMovie] = useState([])
+    const [currentMovieDetail, setcurrentMovieDetail] = useState()
     const { id } = useParams()
 
    
@@ -11,7 +11,7 @@ const Movie = () => {
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
         .then(res => res.json())
-        .then(data => setMovie(data))
+        .then(data => setcurrentMovieDetail(data))
         window.scrollTo(0,0)
     }, [id])
 
